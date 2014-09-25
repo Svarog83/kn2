@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>KNPC Admin</title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/css/font-awesome.css" />
+	<link rel="stylesheet" href="/css/jquery-ui.css" />
+	<link rel="stylesheet" href="/css/icheck/flat/blue.css" />
+	<link rel="stylesheet" href="/css/fullcalendar.css"/>
+	<link rel="stylesheet" href="/css/jquery.jscrollpane.css" />
+	<link rel="stylesheet" href="/css/unicorn.css" />
+
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="/js/respond.min.js"></script>
+	<![endif]-->
+
+	<!--css for forms-->
+	<link rel="stylesheet" href="/css/colorpicker.css" />
+	<link rel="stylesheet" href="/css/datepicker.css" />
+	<link rel="stylesheet" href="/css/select2.css" />
+	<link rel="stylesheet" href="/css/sd.main.css"/>
+
+	<!--scripts for growl-like notifications-->
+	<link rel="stylesheet" href="/css/jquery.gritter.css" />
+
+	<script src="/js/jquery.min.js"></script>
+
+
+</head>
+<body data-color="orange" class="flat">
+
+<script language="JavaScript">
+<!--
+/* Global variables used in all links. Do not override! Specified in header_2.php*/
+var gDEV_SERVER   = true;
+
+/**
+ *
+ * @type {{}} Different settings for cloning of fields
+ */
+var gCloneObjSettings = {};
+/**
+ *
+ * @type {{}} Table and field name which has to be copied
+ */
+var gCloneObj = {};
+/**
+ *
+ * @type {number} global AutoComplete ID. Used in all field's IDs
+ */
+var gAC_ID = 0;
+
+//-->
+</script>
+
+<div id="header">
+				<h1><a href="./index.html">Unicorn Admin</a></h1>
+				<a id="menu-trigger" href="#"><i class="fa fa-bars"></i></a>
+			</div>
+
+<div id="user-nav">
+	            <ul class="btn-group">
+	                <li class="btn" ><a title="" href="#"><i class="fa fa-user"></i> <span class="text">Profile</span></a></li>
+	                <li class="btn dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="fa fa-envelope"></i> <span class="text">Messages</span> <span class="label label-danger">5</span> <b class="caret"></b></a>
+	                    <ul class="dropdown-menu messages-menu">
+	                        <li class="title"><i class="fa fa-envelope-alt"></i>Messages<a class="title-btn" href="#" title="Write new message"><i class="fa fa-share"></i></a></li>
+	                        <li class="message-item">
+	                        	<a href="#">
+		                            <img alt="User Icon" src="img/demo/av1.jpg" />
+		                            <div class="message-content">
+		                            	<span class="message-time">
+			                                3 mins ago
+			                            </span>
+		                                <span class="message-sender">
+		                                    Nunc Cenenatis
+		                                </span>
+		                                <span class="message">
+		                                    Hi, can you meet me at the office tomorrow morning?
+		                                </span>
+		                            </div>
+	                        	</a>
+	                        </li>
+	                        <li class="message-item">
+								<a href="#">
+		                            <img alt="User Icon" src="img/demo/av1.jpg" />
+		                            <div class="message-content">
+		                            	<span class="message-time">
+			                                3 mins ago
+			                            </span>
+		                                <span class="message-sender">
+		                                    Nunc Cenenatis
+		                                </span>
+		                                <span class="message">
+		                                    Hi, can you meet me at the office tomorrow morning?
+		                                </span>
+		                            </div>
+	                        	</a>
+	                        </li>
+	                        <li class="message-item">
+								<a href="#">
+		                            <img alt="User Icon" src="img/demo/av1.jpg" />
+		                            <div class="message-content">
+		                            	<span class="message-time">
+			                                3 mins ago
+			                            </span>
+		                                <span class="message-sender">
+		                                    Nunc Cenenatis
+		                                </span>
+		                                <span class="message">
+		                                    Hi, can you meet me at the office tomorrow morning?
+		                                </span>
+		                            </div>
+	                        	</a>
+	                        </li>
+	                    </ul>
+	                </li>
+	                <li class="btn"><a title="" href="#"><i class="fa fa-cog"></i> <span class="text">Settings</span></a></li>
+	                <li class="btn"><a title="" href="login.html"><i class="fa fa-share"></i> <span class="text">Logout</span></a></li>
+	            </ul>
+	        </div>
+<div id="sidebar">
+	<ul>
+						<li class=""><a href="/"><i
+								class="fa fa-home"></i> <span>Home</span></a></li>
+							<li class="submenu ">
+					<a href="#"><i class="fa fa-user"></i> <span>Users <i class="arrow fa fa-chevron-right"></i></span></a>
+					<ul>
+													<li class=""><a
+										href="/user/new"><i class=""></i>
+									<span>New</span></a></li>
+													<li class=""><a
+										href="/user/list"><i class=""></i>
+									<span>List</span></a></li>
+													<li class=""><a
+										href="/user/settings"><i class=""></i>
+									<span>Settings</span></a></li>
+													<li class=""><a
+										href="/user/profile"><i class=""></i>
+									<span>Profile</span></a></li>
+											</ul>
+				</li>
+				</ul>
+</div>
+
+<div id="content">
+	<div id="content-header" class="mini">
+		<h1>Header</h1>
+	</div>
+	<div id="breadcrumb">
+		<a href="/" title="Main" class="tip-bottom"><i class="fa fa-home"></i> Main</a>
+			</div>
+<div class="row">
+	<br>
+	<div class="col-xs-12">
+		<div class="alert alert-info">
+				<strong>Vetko Sergey</strong>, you are authorized in KNPC
+				<a href="#" data-dismiss="alert" class="close">×</a>
+			</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-sm-6">
+		<div class="widget-box">
+			<div class="widget-title"><span class="icon"><i class="fa fa-file"></i></span><h5>Recent Posts</h5><span title="54 total posts" class="label label-info tip-left">54</span></div>
+			<div class="widget-content nopadding">
+				<ul class="recent-posts">
+					<li>
+						<div class="user-thumb">
+							<img width="40" height="40" alt="User" src="img/demo/av2.jpg">
+						</div>
+						<div class="article-post">
+							<span class="user-info"> By: neytiri on 2 Aug 2012, 09:27 AM, IP: 186.56.45.7 </span>
+							<p>
+								<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+							</p>
+							<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Publish</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+						</div>
+					</li>
+					<li>
+						<div class="user-thumb">
+							<img width="40" height="40" alt="User" src="img/demo/av3.jpg">
+						</div>
+						<div class="article-post">
+							<span class="user-info"> By: john on on 24 Jun 2012, 04:12 PM, IP: 192.168.24.3 </span>
+							<p>
+								<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+							</p>
+							<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Publish</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+						</div>
+					</li>
+					<li>
+						<div class="user-thumb">
+							<img width="40" height="40" alt="User" src="img/demo/av1.jpg">
+						</div>
+						<div class="article-post">
+							<span class="user-info"> By: michelle on 22 Jun 2012, 02:44 PM, IP: 172.10.56.3 </span>
+							<p>
+								<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+							</p>
+							<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Publish</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+						</div>
+					</li>
+					<li class="viewall">
+						<a title="View all posts" class="tip-top" href="#"> + View all + </a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<div class="widget-box">
+			<div class="widget-title"><span class="icon"><i class="fa fa-comment"></i></span><h5>Recent Comments</h5><span title="88 total comments" class="label label-info tip-left">88</span></div>
+			<div class="widget-content nopadding">
+				<ul class="recent-comments">
+					<li>
+						<div class="user-thumb">
+							<img width="40" height="40" alt="User" src="img/demo/av1.jpg">
+						</div>
+						<div class="comments">
+							<span class="user-info"> User: michelle on IP: 172.10.56.3 </span>
+							<p>
+								<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+							</p>
+							<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Approve</a> <a href="#" class="btn btn-warning btn-xs">Mark as spam</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+						</div>
+					</li>
+					<li>
+						<div class="user-thumb">
+							<img width="40" height="40" alt="User" src="img/demo/av3.jpg">
+						</div>
+						<div class="comments">
+							<span class="user-info"> User: john on IP: 192.168.24.3 </span>
+							<p>
+								<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+							</p>
+							<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Approve</a> <a href="#" class="btn btn-warning btn-xs">Mark as spam</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+						</div>
+					</li>
+					<li>
+						<div class="user-thumb">
+							<img width="40" height="40" alt="User" src="img/demo/av2.jpg">
+						</div>
+						<div class="comments">
+							<span class="user-info"> User: neytiri on IP: 186.56.45.7 </span>
+							<p>
+								<a href="#">Vivamus sed auctor nibh congue, ligula vitae tempus pharetra...</a>
+							</p>
+							<a href="#" class="btn btn-primary btn-xs">Edit</a> <a href="#" class="btn btn-success btn-xs">Approve</a> <a href="#" class="btn btn-warning btn-xs">Mark as spam</a> <a href="#" class="btn btn-danger btn-xs">Delete</a>
+						</div>
+					</li>
+					<li class="viewall">
+						<a title="View all comments" class="tip-top" href="#"> + View all + </a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--closing of <div id="content"> in sidebar.php-->
+</div>
+
+
+<script src="/js/excanvas.min.js"></script>
+<script src="/js/jquery-ui.custom.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/jquery.flot.min.js"></script>
+<script src="/js/jquery.flot.resize.min.js"></script>
+<script src="/js/jquery.sparkline.min.js"></script>
+<script src="/js/fullcalendar.min.js"></script>
+
+<script src="/js/jquery.nicescroll.min.js"></script>
+<script src="/js/unicorn.js"></script>
+
+
+
+<!--scripts for forms-->
+<script src="/js/select2.min.js"></script>
+<script src="/js/plugins/sd.form_common.js"></script>
+<script src="/js/functions/jquery_clone.js"></script>
+<script src="/js/bootstrap-colorpicker.js"></script>
+<script src="/js/bootstrap-datepicker.js"></script>
+<script src="/js/jquery.icheck.min.js"></script>
+
+<!--Growl-like notifications-->
+<script src="/js/bootbox.min.js"></script>
+<script src="/js/jquery.gritter.min.js"></script>
+
+
+<!--Tables-->
+<script src="/js/plugins/sd.tables.js"></script>
+<script src="/js/jquery.dataTables.min.js"></script>
+<script src="js/unicorn.tables.js"></script>
+
+
+<!--SD JS functions-->
+<script type="text/javascript" language="Javascript" src="/js/functions/main.v1381485235.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/jquery.validate.min.js"></script>
+<script type="text/javascript" src="/js/plugins/jquery-validate/additional-methods.min.js"></script>
+
+<script type="text/javascript" src="/js/functions/DP_Debug.js"></script>
+<script type="text/javascript" src="/js/functions/jquery_scrollTo.js"></script>
+
+
+</body>
+</html>
